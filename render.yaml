@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: crypto-trading-agent-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: TRADING_MODE
+        value: paper
+      - key: LIVE_TRADING_CONFIRMATION
+        value: "NO"
+      - key: EXCHANGE_ID
+        value: binance
+      - key: SYMBOL
+        value: BTC/USDT
+      - key: EXCHANGE_API_KEY
+        sync: false
+      - key: EXCHANGE_API_SECRET
+        sync: false
+      - key: CONTROL_API_TOKEN
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
