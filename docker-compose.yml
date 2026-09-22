@@ -1,0 +1,14 @@
+services:
+  backend:
+    build: ./backend
+    env_file: .env
+    ports: ["8000:8000"]
+    restart: unless-stopped
+    volumes: [trading-data:/app/data]
+  frontend:
+    build: ./frontend
+    ports: ["5173:80"]
+    restart: unless-stopped
+    depends_on: [backend]
+volumes:
+  trading-data:
