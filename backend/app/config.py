@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     risk_per_trade:float=.005; max_position_pct:float=.10; max_daily_loss_pct:float=.02
     stop_loss_pct:float=.015; take_profit_pct:float=.03; min_signal_score:int=2
     paper_starting_cash:float=10000; cors_origins:str="http://localhost:5173"
+    control_api_token:str="CHANGE_ME_BEFORE_DEPLOYMENT"
     model_config=SettingsConfigDict(env_file=".env",extra="ignore")
     @property
     def live_enabled(self):
